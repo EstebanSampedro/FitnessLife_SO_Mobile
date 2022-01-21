@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessLife_SO_Mobile.Android", "FitnessLife_SO_Mobile\FitnessLife_SO_Mobile.Android\FitnessLife_SO_Mobile.Android.csproj", "{04D8E2E2-DB8F-48B9-89D0-682562819F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessLife_SO_Mobile", "FitnessLife_SO_Mobile\FitnessLife_SO_Mobile\FitnessLife_SO_Mobile.csproj", "{502E8E53-D09B-4D60-B910-DE2F15FCCC16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04D8E2E2-DB8F-48B9-89D0-682562819F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D8E2E2-DB8F-48B9-89D0-682562819F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D8E2E2-DB8F-48B9-89D0-682562819F32}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{04D8E2E2-DB8F-48B9-89D0-682562819F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D8E2E2-DB8F-48B9-89D0-682562819F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D8E2E2-DB8F-48B9-89D0-682562819F32}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{502E8E53-D09B-4D60-B910-DE2F15FCCC16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502E8E53-D09B-4D60-B910-DE2F15FCCC16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502E8E53-D09B-4D60-B910-DE2F15FCCC16}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{502E8E53-D09B-4D60-B910-DE2F15FCCC16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502E8E53-D09B-4D60-B910-DE2F15FCCC16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502E8E53-D09B-4D60-B910-DE2F15FCCC16}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {623E1248-56C3-428E-874C-E1725330CD17}
+	EndGlobalSection
+EndGlobal
