@@ -5,12 +5,12 @@ using System.Text;
 
 namespace FitnessLife_SO_Mobile.Models
 {
-     class Dietas
+     public class Dietas
     {
-        [Key]
+        
         public int IdDieta { get; set; }
 
-        [Required]
+        
         public string Descripcion { get; set; }
 
         public virtual ICollection<DietaDetalles> DietaDetalles { get; set; }

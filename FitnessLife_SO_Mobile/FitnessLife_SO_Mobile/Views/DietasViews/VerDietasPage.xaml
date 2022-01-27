@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FitnessLife_SO_Mobile.ViewModels" 
+             x:Class="FitnessLife_SO_Mobile.Views.DietasViews.VerDietasPage"
+             Title="Detalles de Dieta">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="EditDieta" Priority="0" />
+
+
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Modificar / Eliminar Dieta" 
+                   FontSize="Title"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+
+            <!-- Apartado de Detalles de Dieta-->
+            <Label Text="Descripcion: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+            <Entry x:Name="txtDescripcion"
+                   Placeholder="DietaDescripcion"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Button x:Name="btnGuardar"
+                    Text="Modificar"
+                    TextColor="Black"
+                    FontSize="14"
+                    BackgroundColor="Red"
+                    HeightRequest="40"
+                    WidthRequest="300"
+                    Margin="20"
+                    HorizontalOptions="Center"/>
+
+            <Button x:Name="btnEliminar"
+                    Text="Eliminar"
+                    TextColor="Black"
+                    FontSize="14"
+                    BackgroundColor="Red"
+                    HeightRequest="40"
+                    WidthRequest="300"
+                    Margin="20"
+                    HorizontalOptions="Center"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

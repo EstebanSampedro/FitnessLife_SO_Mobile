@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FitnessLife_SO_Mobile.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace FitnessLife_SO_Mobile.Models
+namespace FitnessLife_SO_Mobile.ViewModels
 {
-    public class DietaDetalles
+    public class DietaDetallesDetailViewModel
     {
         [Key]
         public int IdDietaDetalle { get; set; }
