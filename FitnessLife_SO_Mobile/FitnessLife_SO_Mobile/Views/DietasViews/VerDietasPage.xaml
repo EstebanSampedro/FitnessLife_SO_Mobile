@@ -6,7 +6,7 @@
              Title="Detalles de Dieta">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="EditDieta" Priority="0" />
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="EditDieta" Priority="0" Clicked="MenuItem1_Clicked" />
 
 
     </ContentPage.ToolbarItems>

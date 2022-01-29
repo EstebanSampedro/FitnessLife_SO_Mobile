@@ -2,11 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitnessLife_SO_Mobile.Views.DietasViews.CrearDietasPage">
-    <ContentPage.Content>
+
+    <ScrollView>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Agregar dieta"
+                   FontSize="Title"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Descripción: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtDescripcion"
+                   Placeholder="Descripcion"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+            <Button x:Name="btnGuardar"
+                    Text="Guardar"
+                    TextColor="Black"
+                    FontSize="15"
+                    BackgroundColor="Red"
+                    HeightRequest="40"
+                    WidthRequest="300"
+                    Margin="20"
+                    HorizontalOptions="Center"/>
+
+            <Label/>
+
+
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

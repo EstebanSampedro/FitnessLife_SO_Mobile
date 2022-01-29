@@ -35,7 +35,8 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
             }
             catch (Exception)
             {
-                throw;
+                 DisplayAlert("Notificacion", "Error al conectar", "OK");
+                 Navigation.PopToRootAsync();
             }
         }
 
@@ -47,6 +48,8 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
         {
             base.OnAppearing();
         }
+
+        public static string DietasUrl = $"http://10.0.2.2:44396/api/dietas";
 
         protected override void OnAppearing()
         {
@@ -81,7 +84,7 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                 catch (Exception)
                 {
                     await DisplayAlert("Notificación", "Error de conexión", "OK");
-                    await Navigation.PopToRootAsync();
+                    await Navigation.PopAsync();
                 }
             });
         }
@@ -89,7 +92,7 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
         
 
 
-        public static string DietasUrl = $"http://10.0.2.2:44396/api/dietas";
+        
         
 
         private async void mostrarDatos()
