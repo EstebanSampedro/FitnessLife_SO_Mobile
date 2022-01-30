@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:FitnessLife_SO_Mobile.ViewModels" 
-             x:Class="FitnessLife_SO_Mobile.Views.DietasViews.VerDietasPage"
-             Title="Opciones de Dieta">
+             x:Class="FitnessLife_SO_Mobile.Views.RutinaDetallesViews.VerRutinaDetallesPage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="Modificar" Priority="0" Clicked="MenuItem1_Clicked" />
@@ -14,18 +12,58 @@
         <StackLayout>
 
             <Label/>
-            <!-- Apartado de Detalles de Dieta-->
-            <Label Text="Descripcion: "
+            <!-- Apartado de Atributos (RutinaDetalles)-->
+            <Label Text="Dia de la Semana: "
                    TextColor="Black"
                    FontSize="Subtitle"
                    Margin="20,0,0,0"
                    HorizontalOptions="Start"/>
-            <Entry x:Name="txtDescripcion"
-                   Placeholder="DescripcionSeleccionada"
+            <Entry x:Name="txtDia"
+                   Placeholder="DiaSeleccionada"
                    Keyboard="Text"
                    MaxLength="100"
                    ClearButtonVisibility="WhileEditing"
                    Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Ejercicio: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+            <Entry x:Name="txtEjercicio"
+                   Placeholder="EjercicioSeleccionada"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Repeticiones: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+            <Entry x:Name="txtRepeticiones"
+                   Placeholder="RepeticionesSeleccionada"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <!-- Bton de seleccionar varias opciones IdRutina-->
+            <Label Text="IdRutina: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+            <Picker x:Name="PickerIdRutina"
+                    Title="Selecciona la IdRutina"/>
+
 
             <Label/>
 

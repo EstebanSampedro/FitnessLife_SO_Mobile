@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:FitnessLife_SO_Mobile.ViewModels" 
-             x:Class="FitnessLife_SO_Mobile.Views.DietasViews.VerDietasPage"
-             Title="Opciones de Dieta">
+             x:Class="FitnessLife_SO_Mobile.Views.RutinasViews.VerRutinasPage"
+             Title="Opciones de Rutina">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="Modificar" Priority="0" Clicked="MenuItem1_Clicked" />
@@ -14,7 +13,7 @@
         <StackLayout>
 
             <Label/>
-            <!-- Apartado de Detalles de Dieta-->
+            <!-- Apartado de Detalles de Rutina-->
             <Label Text="Descripcion: "
                    TextColor="Black"
                    FontSize="Subtitle"
@@ -39,6 +38,8 @@
                     WidthRequest="300"
                     Margin="20"
                     HorizontalOptions="Center"/>
+            
+            
             <Button x:Name="btnEliminar"
                     Text="Eliminar"
                     FontAttributes="Bold"

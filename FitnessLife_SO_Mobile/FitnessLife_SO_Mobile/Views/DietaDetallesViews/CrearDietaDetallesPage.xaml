@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessLife_SO_Mobile.Views.DietaDetallesViews.CrearDietaDetallesPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Agregar dieta detalle"
+                   FontSize="Title"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Dia de la semana: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtDia"
+                   Placeholder="Ingrese el dia"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Hora de Comida: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtHora"
+                   Placeholder="Ingrese la Hora de Comida"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Plato: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtPlato"
+                   Placeholder="Ingrese el Plato"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Porción: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtPorcion"
+                   Placeholder="Ingrese la Porción"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <!-- Bton de seleccionar varias opciones IdRutina-->
+            <Label Text="ID Rutina: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+            <Picker x:Name="PickerIdDieta"
+                    Title="Selecciona la IdRutina"
+                    
+                    Margin="20,5,20,5"
+                    />
+
+
+            <Label/>
+            <Button x:Name="btnGuardar"
+                    Text="Guardar"
+                    TextColor="Black"
+                    FontSize="15"
+                    BackgroundColor="LightSkyBlue"
+                    HeightRequest="40"
+                    WidthRequest="300"
+                    Margin="20"
+                    HorizontalOptions="Center"/>
+
+            <Label/>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

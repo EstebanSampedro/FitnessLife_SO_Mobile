@@ -1,31 +1,29 @@
-﻿using System;
+﻿using FitnessLife_SO_Mobile.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using FitnessLife_SO_Mobile.Models;
-using FitnessLife_SO_Mobile.ViewModels;
-using Newtonsoft.Json;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FitnessLife_SO_Mobile.Views.DietasViews
+namespace FitnessLife_SO_Mobile.Views.DietaDetallesViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VerDietasPage : ContentPage
+    public partial class VerDietaDetallesPage : ContentPage
     {
-
-        public int id_dieta;
-        public VerDietasPage(int dietaID)
+        public int id_dietaDetalle;
+        public VerDietaDetallesPage(int dietaDetalleID)
         {
             InitializeComponent();
-            id_dieta = dietaID;
+            id_dietaDetalle = dietaDetalleID;
             EditTextFalse();
             btnGuardar.Clicked += BtnGuardar_Clicked;
             btnEliminar.Clicked += BtnEliminar_Clicked;
-
         }
 
         private void BtnEliminar_Clicked(object sender, EventArgs e)
@@ -37,19 +35,20 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                 {
                     try
                     {
+                        
                         var httpHandler = new HttpClientHandler();
                         var client = new HttpClient(httpHandler);
-                        var json = JsonConvert.SerializeObject(id_dieta);
+                        var json = JsonConvert.SerializeObject(id_dietaDetalle);
                         var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                        HttpResponseMessage response = await client.DeleteAsync($"http://10.0.2.2:44396/api/dietas/" + id_dieta);
+                        HttpResponseMessage response = await client.DeleteAsync($"http://10.0.2.2:44396/api/dietadetalles/" + id_dietaDetalle);
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
-                            await DisplayAlert("Notificación", "La dieta se ha eliminado con exito", "OK");
+                            await DisplayAlert("Notificación", "La dieta detallada se ha eliminado con exito", "OK");
                             await Navigation.PopAsync();
                         }
                         else
                         {
-                            await DisplayAlert("Notificación", "La dieta se ha eliminado con exito", "OK");
+                            await DisplayAlert("Notificación", "La dieta detallada se ha eliminado con exito", "OK");
                             await Navigation.PopAsync();
                         }
 
@@ -67,6 +66,14 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
             });
         }
 
+        List<string> listaDietas = new List<string>();
+        List<int> listaDietasID = new List<int>();
+        public int buscarIDDieta()
+        {
+            int x = PickerIdDieta.SelectedIndex;
+            return listaDietasID[x];  
+        }
+
         private void BtnGuardar_Clicked(object sender, EventArgs e)
         {
             Device.BeginInvokeOnMainThread(async () =>
@@ -76,29 +83,46 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                 {
                     try
                     {
-                        if (String.IsNullOrWhiteSpace(txtDescripcion.Text))
+                        if (String.IsNullOrWhiteSpace(txtDia.Text))
                         {
-                            await DisplayAlert("Advertencia", "El campo Descripcion es obligatorio", "OK");
+                            await DisplayAlert("Advertencia", "El campo DIA SEMANA es obligatorio", "OK");
                         }
+                        else if(String.IsNullOrWhiteSpace(txtHora.Text))
+                        {
+                            await DisplayAlert("Advertencia", "El campo HORA COMIDA es obligatorio", "OK");
+                        }
+                        else if (String.IsNullOrWhiteSpace(txtPlato.Text))
+                        {
+                            await DisplayAlert("Advertencia", "El campo PLATO es obligatorio", "OK");
+                        }
+                        else if (String.IsNullOrWhiteSpace(txtPorcion.Text))
+                        {
+                            await DisplayAlert("Advertencia", "El campo PORCION es obligatorio", "OK");
+                        }
+
                         else
                         {
-                            var dietas = new Dietas();
-                            dietas.IdDieta = id_dieta;
-                            dietas.Descripcion = txtDescripcion.Text;
+                            var dietaDetalles = new DietaDetalles();
+                            dietaDetalles.IdDietaDetalle = id_dietaDetalle;
+                            dietaDetalles.DiaSemana = txtDia.Text;
+                            dietaDetalles.HoraComida = txtHora.Text;
+                            dietaDetalles.Plato = txtPlato.Text;
+                            dietaDetalles.Porcion = txtPorcion.Text;
+                            dietaDetalles.IdDieta = buscarIDDieta();
 
                             var httpHandler = new HttpClientHandler();
                             var client = new HttpClient(httpHandler);
-                            var json = JsonConvert.SerializeObject(dietas);
+                            var json = JsonConvert.SerializeObject(dietaDetalles);
                             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                            HttpResponseMessage response = await client.PutAsync($"http://10.0.2.2:44396/api/dietas/{dietas.IdDieta}", content);
-                            if(response.StatusCode == HttpStatusCode.OK)
+                            HttpResponseMessage response = await client.PutAsync($"http://10.0.2.2:44396/api/dietadetalles/{dietaDetalles.IdDietaDetalle}", content);
+                            if (response.StatusCode == HttpStatusCode.OK)
                             {
-                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " +txtDescripcion.Text, "OK");
+                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " + txtPlato.Text, "OK");
                                 await Navigation.PopAsync();
                             }
                             else
                             {
-                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " + txtDescripcion.Text, "OK");
+                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " + txtPlato.Text, "OK");
                                 await Navigation.PopAsync();
                             }
 
@@ -117,14 +141,23 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
 
         private void EditTextFalse()
         {
-            txtDescripcion.IsEnabled = false;
+            txtDia.IsEnabled = false;
+            txtHora.IsEnabled = false;
+            txtPlato.IsEnabled = false;
+            txtPorcion.IsEnabled = false;
+            
+
             btnGuardar.IsVisible = false;
 
         }
 
         private void MenuItem1_Clicked(object sender, EventArgs e)
         {
-            txtDescripcion.IsEnabled = true;
+            txtDia.IsEnabled = true;
+            txtHora.IsEnabled = true;
+            txtPlato.IsEnabled = true;
+            txtPorcion.IsEnabled = true;
+
             btnGuardar.IsVisible = true;
         }
 
@@ -135,15 +168,15 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
             {
                 try
                 {
-#if DEBUG
+                #if DEBUG
 
                     var httpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (o, cert, chain, errors) => true };
-#else
+                #else
                      httpHandler = new HttpClientHandler();
 
-#endif
+                #endif
                     var request = new HttpRequestMessage();
-                    request.RequestUri = new Uri($"http://10.0.2.2:44396/api/dietas" + id_dieta);
+                    request.RequestUri = new Uri($"http://10.0.2.2:44396/api/dietas");
                     request.Method = HttpMethod.Get;
                     request.Headers.Add("accept", "application/json");
 
@@ -156,17 +189,16 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
 
                         string content = await response.Content.ReadAsStringAsync();
                         var resultado = JsonConvert.DeserializeObject<List<Dietas>>(content);
-                        if(resultado.Count > 0)
+                        foreach (Dietas nuevaDieta in resultado)
                         {
-                            txtDescripcion.Text = resultado[0].Descripcion;
+                            //listaDietas.Add(nuevaDieta.Descripcion);
+                            listaDietasID.Add(nuevaDieta.IdDieta);
+                            PickerIdDieta.Items.Add(nuevaDieta.Descripcion);
+
                         }
-                        else
-                        {
-                            await DisplayAlert("Notificación", "Error de conexión", "OK");
-                            
-                        }
+                        //PickerIdDieta.ItemsSource = listaDietas;
                     }
-                    
+
                 }
                 catch (Exception)
                 {
@@ -175,5 +207,7 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                 }
             });
         }
+
+
     }
 }

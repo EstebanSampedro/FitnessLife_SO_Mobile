@@ -11,18 +11,16 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FitnessLife_SO_Mobile.Views.DietasViews
+namespace FitnessLife_SO_Mobile.Views.RutinasViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CrearDietasPage : ContentPage
+    public partial class CrearRutinasPage : ContentPage
     {
-        public CrearDietasPage()
+        public CrearRutinasPage()
         {
             InitializeComponent();
             btnGuardar.Clicked += BtnGuardar_Clicked;
         }
-
-
 
         private async void BtnGuardar_Clicked(object sender, EventArgs e)
         {
@@ -34,23 +32,23 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                 }
                 else
                 {
-                    var dietas = new Dietas();
-                    dietas.IdDieta = 0;
-                    dietas.Descripcion = txtDescripcion.Text;
+                    var rutinas = new Rutinas();
+                    rutinas.IdRutina = 0;
+                    rutinas.Descripcion = txtDescripcion.Text;
 
 
                     var request = new HttpRequestMessage();
-                    request.RequestUri = new Uri("http://10.0.2.2:44396/api/dietas");
+                    request.RequestUri = new Uri("http://10.0.2.2:44396/api/rutinas");
                     request.Method = HttpMethod.Post;
                     request.Headers.Add("Accept", "application/json");
-                    var payload = JsonConvert.SerializeObject(dietas);
+                    var payload = JsonConvert.SerializeObject(rutinas);
                     HttpContent c = new StringContent(payload, Encoding.UTF8, "application/json");
                     request.Content = c;
                     var client = new HttpClient();
                     HttpResponseMessage response = await client.SendAsync(request);
-                    if(response.StatusCode == HttpStatusCode.OK)
+                    if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        await DisplayAlert("Notificacion", "La dieta " +txtDescripcion.Text + " se ha creado exitosamente ", "OK");
+                        await DisplayAlert("Notificacion", "La dieta " + txtDescripcion.Text + " se ha creado exitosamente ", "OK");
                         await Navigation.PopAsync();
                     }
                     else
@@ -58,7 +56,7 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                         await DisplayAlert("Notificacion", "La dieta " + txtDescripcion.Text + " se ha creado exitosamente ", "OK");
                         await Navigation.PopAsync();
                     }
-                    
+
                 }
             }
             catch (Exception)

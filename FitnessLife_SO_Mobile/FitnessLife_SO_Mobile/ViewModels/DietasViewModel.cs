@@ -35,7 +35,7 @@ namespace FitnessLife_SO_Mobile.ViewModels
         public void OnAppearing()
         {
             IsBusy = true;
-            Dietas SelectedDieta;
+            //Dietas SelectedDieta;
         }
         public Dietas SelectedDieta
         {

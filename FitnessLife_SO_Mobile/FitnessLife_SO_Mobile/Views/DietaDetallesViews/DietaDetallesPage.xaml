@@ -4,41 +4,34 @@
              x:Class="FitnessLife_SO_Mobile.Views.DietaDetallesViews.DietaDetallesPage"
              Title="Dietas Detalladas"
              xmlns:local="clr-namespace:FitnessLife_SO_Mobile.ViewModels"  
-             xmlns:model="clr-namespace:FitnessLife_SO_Mobile.Models" x:DataType="local:DietaDetallesViewModel"
+             xmlns:model="clr-namespace:FitnessLife_SO_Mobile.Models"
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddDietaDetallesCommand}" />
+        <ToolbarItem  Text="Add" Icon="ic_action_new.png" Clicked="MenuItem1_Clicked" />
+        <ToolbarItem  Text="Actualizar" Icon="ic_autorenew.png" Clicked="MenuItem2_Clicked" />
+
     </ContentPage.ToolbarItems>
-    <!--
-      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
-      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
-    -->
 
-    <CollectionView x:Name="DietaDetallesListView"
-                ItemsSource="{Binding DietaDetalles}"
-                SelectionMode="None">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout Padding="10" x:DataType="model:DietaDetalles">
-                    <Label Text= "{Binding Dietas.Descripcion}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                    <Label Text="{Binding DiaSemana}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:DietaDetallesViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                        </TapGestureRecognizer>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
 
+    <StackLayout>
+        <Label/>
+        <Label Text="Lista de Dietas Detalladas" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="Black"/>
+        <ListView x:Name="DietaDetallesListView" SelectionMode="None">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell TextColor="Black" DetailColor="Green"
+                               
+                               Text="{Binding Dietas.Descripcion}"
+                               Detail="{Binding DiaSemana}"
+                               
+                               
+                               ImageSource="icon.png">
+
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

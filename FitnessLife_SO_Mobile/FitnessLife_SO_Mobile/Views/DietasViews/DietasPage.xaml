@@ -5,25 +5,24 @@
              x:Class="FitnessLife_SO_Mobile.Views.DietasViews.DietasPage"
              Title="Dietas">
 
-
-
-
     <ContentPage.ToolbarItems>
-        <ToolbarItem  Text="Add" Icon="Add.png" Clicked="MenuItem1_Clicked" />
-        <ToolbarItem  Text="Actualizar" Icon="Add.png" Clicked="MenuItem2_Clicked" />
+        <ToolbarItem  Text="Add" Icon="ic_action_new.png" Clicked="MenuItem1_Clicked" />
+        <ToolbarItem  Text="Actualizar" Icon="ic_autorenew.png" Clicked="MenuItem2_Clicked" />
         
     </ContentPage.ToolbarItems>
  
 
     <StackLayout>
-        <Label Text="Tipos de Dietas" FontSize="Title" TextColor="Black"/>
+        <Label/>
+        <Label Text="Lista de Dietas" FontSize="Title" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"/>
         <ListView x:Name="DietasListView" SelectionMode="None">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell TextColor="ForestGreen" DetailColor="AliceBlue"
+                    <ImageCell TextColor="Black" DetailColor="Green"
+                               
                                Text="{Binding Descripcion}"
-                               Detail="{Binding IdRutina}"
+                               
                                ImageSource="icon.png">
 
                     </ImageCell>

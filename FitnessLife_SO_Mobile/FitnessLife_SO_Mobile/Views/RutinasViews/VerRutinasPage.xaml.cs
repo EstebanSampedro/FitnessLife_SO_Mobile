@@ -1,31 +1,29 @@
-﻿using System;
+﻿using FitnessLife_SO_Mobile.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using FitnessLife_SO_Mobile.Models;
-using FitnessLife_SO_Mobile.ViewModels;
-using Newtonsoft.Json;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FitnessLife_SO_Mobile.Views.DietasViews
+namespace FitnessLife_SO_Mobile.Views.RutinasViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VerDietasPage : ContentPage
+    public partial class VerRutinasPage : ContentPage
     {
-
-        public int id_dieta;
-        public VerDietasPage(int dietaID)
+        public int id_rutina;
+        public VerRutinasPage(int rutinaID)
         {
             InitializeComponent();
-            id_dieta = dietaID;
+            id_rutina = rutinaID;
             EditTextFalse();
             btnGuardar.Clicked += BtnGuardar_Clicked;
             btnEliminar.Clicked += BtnEliminar_Clicked;
-
         }
 
         private void BtnEliminar_Clicked(object sender, EventArgs e)
@@ -39,17 +37,17 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                     {
                         var httpHandler = new HttpClientHandler();
                         var client = new HttpClient(httpHandler);
-                        var json = JsonConvert.SerializeObject(id_dieta);
+                        var json = JsonConvert.SerializeObject(id_rutina);
                         var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                        HttpResponseMessage response = await client.DeleteAsync($"http://10.0.2.2:44396/api/dietas/" + id_dieta);
+                        HttpResponseMessage response = await client.DeleteAsync($"http://10.0.2.2:44396/api/rutinas/" + id_rutina);
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
-                            await DisplayAlert("Notificación", "La dieta se ha eliminado con exito", "OK");
+                            await DisplayAlert("Notificación", "La rutina se ha eliminado con exito", "OK");
                             await Navigation.PopAsync();
                         }
                         else
                         {
-                            await DisplayAlert("Notificación", "La dieta se ha eliminado con exito", "OK");
+                            await DisplayAlert("Notificación", "La rutina se ha eliminado con exito", "OK");
                             await Navigation.PopAsync();
                         }
 
@@ -71,7 +69,7 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                var result = await this.DisplayAlert("Notificacion", "Realmente necesita modificar?", "Si", "No");
+                var result = await this.DisplayAlert("Notificacion", "¿Realmente desea modificar?", "Si", "No");
                 if (result)
                 {
                     try
@@ -82,23 +80,23 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                         }
                         else
                         {
-                            var dietas = new Dietas();
-                            dietas.IdDieta = id_dieta;
-                            dietas.Descripcion = txtDescripcion.Text;
+                            var rutinas = new Rutinas();
+                            rutinas.IdRutina = id_rutina;
+                            rutinas.Descripcion = txtDescripcion.Text;
 
                             var httpHandler = new HttpClientHandler();
                             var client = new HttpClient(httpHandler);
-                            var json = JsonConvert.SerializeObject(dietas);
+                            var json = JsonConvert.SerializeObject(rutinas);
                             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                            HttpResponseMessage response = await client.PutAsync($"http://10.0.2.2:44396/api/dietas/{dietas.IdDieta}", content);
-                            if(response.StatusCode == HttpStatusCode.OK)
+                            HttpResponseMessage response = await client.PutAsync($"http://10.0.2.2:44396/api/rutinas/{rutinas.IdRutina}", content);
+                            if (response.StatusCode == HttpStatusCode.OK)
                             {
-                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " +txtDescripcion.Text, "OK");
+                                await DisplayAlert("Notificacion", "La rutina se ha modificado con exito: " + txtDescripcion.Text, "OK");
                                 await Navigation.PopAsync();
                             }
                             else
                             {
-                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " + txtDescripcion.Text, "OK");
+                                await DisplayAlert("Notificacion", "La rutina se ha modificado con exito: " + txtDescripcion.Text, "OK");
                                 await Navigation.PopAsync();
                             }
 
@@ -109,7 +107,6 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                     {
                         await DisplayAlert("Notificacion", "Error al conectar", "OK");
                         await Navigation.PopToRootAsync();
-
                     }
                 }
             });
@@ -143,7 +140,7 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
 
 #endif
                     var request = new HttpRequestMessage();
-                    request.RequestUri = new Uri($"http://10.0.2.2:44396/api/dietas" + id_dieta);
+                    request.RequestUri = new Uri($"http://10.0.2.2:44396/api/rutinas" + id_rutina);
                     request.Method = HttpMethod.Get;
                     request.Headers.Add("accept", "application/json");
 
@@ -155,18 +152,17 @@ namespace FitnessLife_SO_Mobile.Views.DietasViews
                     {
 
                         string content = await response.Content.ReadAsStringAsync();
-                        var resultado = JsonConvert.DeserializeObject<List<Dietas>>(content);
-                        if(resultado.Count > 0)
+                        var resultado = JsonConvert.DeserializeObject<List<Rutinas>>(content);
+                        if (resultado.Count > 0)
                         {
                             txtDescripcion.Text = resultado[0].Descripcion;
                         }
                         else
                         {
                             await DisplayAlert("Notificación", "Error de conexión", "OK");
-                            
+
                         }
                     }
-                    
                 }
                 catch (Exception)
                 {

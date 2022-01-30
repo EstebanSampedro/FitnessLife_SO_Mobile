@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitnessLife_SO_Mobile.Views.DietasViews.CrearDietasPage">
+             x:Class="FitnessLife_SO_Mobile.Views.RutinasViews.CrearRutinasPage">
 
     <ScrollView>
         <StackLayout>
-            <Label Text="Agregar dieta"
+            <Label Text="Agregar rutina"
                    FontSize="Title"
                    TextColor="Black"
                    HorizontalOptions="Center"/>
