@@ -48,12 +48,12 @@ namespace FitnessLife_SO_Mobile.Views.RutinasViews
                     HttpResponseMessage response = await client.SendAsync(request);
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        await DisplayAlert("Notificacion", "La dieta " + txtDescripcion.Text + " se ha creado exitosamente ", "OK");
+                        await DisplayAlert("Notificacion", "La rutina " + txtDescripcion.Text + " se ha creado exitosamente ", "OK");
                         await Navigation.PopAsync();
                     }
                     else
                     {
-                        await DisplayAlert("Notificacion", "La dieta " + txtDescripcion.Text + " se ha creado exitosamente ", "OK");
+                        await DisplayAlert("Notificacion", "La rutina " + txtDescripcion.Text + " se ha creado exitosamente ", "OK");
                         await Navigation.PopAsync();
                     }
 

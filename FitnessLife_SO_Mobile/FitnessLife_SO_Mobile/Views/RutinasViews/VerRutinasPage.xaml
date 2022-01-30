@@ -20,7 +20,7 @@
                    Margin="20,0,0,0"
                    HorizontalOptions="Start"/>
             <Entry x:Name="txtDescripcion"
-                   Placeholder="DescripcionSeleccionada"
+                   Placeholder="Descripcion"
                    Keyboard="Text"
                    MaxLength="100"
                    ClearButtonVisibility="WhileEditing"

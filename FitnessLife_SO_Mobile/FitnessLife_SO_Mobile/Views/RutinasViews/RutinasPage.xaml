@@ -22,7 +22,7 @@
                                
                                Text="{Binding Descripcion}"
                                
-                               ImageSource="icon.png">
+                               ImageSource="iconoSO.png">
 
                     </ImageCell>
                 </DataTemplate>

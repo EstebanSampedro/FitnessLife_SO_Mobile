@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="FitnessLife_SO_Mobile.Views.DietaDetallesViews.VerDietaDetallesPage">
+             x:Class="FitnessLife_SO_Mobile.Views.DietaDetallesViews.VerDietaDetallesPage"
+             Title="Opciones de dieta detalles">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="Modificar" Priority="0" Clicked="MenuItem1_Clicked" />
@@ -78,7 +79,7 @@
                    HorizontalOptions="Start"/>
             <Picker x:Name="PickerIdDieta"
                     Title="Selecciona la IdDieta"
-                    />
+                    Margin="20,5,20,5"/>
             
 
             <Label/>

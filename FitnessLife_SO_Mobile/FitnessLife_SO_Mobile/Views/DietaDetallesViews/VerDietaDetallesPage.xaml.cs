@@ -117,12 +117,12 @@ namespace FitnessLife_SO_Mobile.Views.DietaDetallesViews
                             HttpResponseMessage response = await client.PutAsync($"http://10.0.2.2:44396/api/dietadetalles/{dietaDetalles.IdDietaDetalle}", content);
                             if (response.StatusCode == HttpStatusCode.OK)
                             {
-                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " + txtPlato.Text, "OK");
+                                await DisplayAlert("Notificacion", "La dieta detallada se ha modificado con exito: " + txtPlato.Text, "OK");
                                 await Navigation.PopAsync();
                             }
                             else
                             {
-                                await DisplayAlert("Notificacion", "La dieta se ha modificado con exito: " + txtPlato.Text, "OK");
+                                await DisplayAlert("Notificacion", "La dieta detallada se ha modificado con exito: " + txtPlato.Text, "OK");
                                 await Navigation.PopAsync();
                             }
 

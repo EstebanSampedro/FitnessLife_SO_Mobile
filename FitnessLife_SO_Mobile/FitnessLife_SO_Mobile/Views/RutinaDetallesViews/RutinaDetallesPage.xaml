@@ -17,13 +17,12 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell TextColor="Black" DetailColor="Green"
+                    <ImageCell TextColor="Black" DetailColor="Green" 
                                
                                Text="{Binding Rutinas.Descripcion}"
                                Detail="{Binding DiaSemana}"
                                
-                               
-                               ImageSource="icon.png">
+                               ImageSource="rutina.png">
 
                     </ImageCell>
                 </DataTemplate>

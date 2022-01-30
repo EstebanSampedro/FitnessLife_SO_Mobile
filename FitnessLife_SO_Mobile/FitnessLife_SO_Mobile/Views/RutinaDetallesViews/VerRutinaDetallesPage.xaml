@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitnessLife_SO_Mobile.Views.RutinaDetallesViews.VerRutinaDetallesPage">
+             x:Class="FitnessLife_SO_Mobile.Views.RutinaDetallesViews.VerRutinaDetallesPage"
+             Title="Opciones rutinas detalles">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Edit.png" Text="Modificar" Priority="0" Clicked="MenuItem1_Clicked" />
@@ -56,13 +57,14 @@
             <Label/>
 
             <!-- Bton de seleccionar varias opciones IdRutina-->
-            <Label Text="IdRutina: "
+            <Label Text="ID Rutina: "
                    TextColor="Black"
                    FontSize="Subtitle"
                    Margin="20,0,0,0"
                    HorizontalOptions="Start"/>
             <Picker x:Name="PickerIdRutina"
-                    Title="Selecciona la IdRutina"/>
+                    Title="Selecciona la IdRutina"
+                    Margin="20,5,20,5"/>
 
 
             <Label/>

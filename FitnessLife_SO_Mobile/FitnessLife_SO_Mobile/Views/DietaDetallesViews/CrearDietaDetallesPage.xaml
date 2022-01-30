@@ -71,13 +71,13 @@
             <Label/>
 
             <!-- Bton de seleccionar varias opciones IdRutina-->
-            <Label Text="ID Rutina: "
+            <Label Text="ID Dieta: "
                    TextColor="Black"
                    FontSize="Subtitle"
                    Margin="20,0,0,0"
                    HorizontalOptions="Start"/>
             <Picker x:Name="PickerIdDieta"
-                    Title="Selecciona la IdRutina"
+                    Title="Selecciona la IdDieta"
                     
                     Margin="20,5,20,5"
                     />

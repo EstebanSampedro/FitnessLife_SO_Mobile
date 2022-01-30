@@ -27,7 +27,7 @@
                                Detail="{Binding DiaSemana}"
                                
                                
-                               ImageSource="icon.png">
+                               ImageSource="dietas.png">
 
                     </ImageCell>
                 </DataTemplate>
