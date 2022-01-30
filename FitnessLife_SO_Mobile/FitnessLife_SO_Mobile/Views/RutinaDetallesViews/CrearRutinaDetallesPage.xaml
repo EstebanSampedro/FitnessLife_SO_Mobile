@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessLife_SO_Mobile.Views.RutinaDetallesViews.CrearRutinaDetallesPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Agregar rutina detallada"
+                   FontSize="Title"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Dia de la semana: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtDia"
+                   Placeholder="Ingrese el dia"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Ejercicio: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtEjercicio"
+                   Placeholder="Ingrese el Ejercicio"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+            <Label Text="Repeticiones: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+
+            <Entry x:Name="txtRepeticiones"
+                   Placeholder="Ingrese las repeticiones (serie x repeticion)"
+                   Keyboard="Text"
+                   MaxLength="100"
+                   ClearButtonVisibility="WhileEditing"
+                   Margin="20,5,20,5"/>
+
+            <Label/>
+
+
+            <!-- Bton de seleccionar varias opciones IdRutina-->
+            <Label Text="ID Rutina: "
+                   TextColor="Black"
+                   FontSize="Subtitle"
+                   Margin="20,0,0,0"
+                   HorizontalOptions="Start"/>
+            <Picker x:Name="PickerIdRutina"
+                    Title="Selecciona la IdRutina"
+                    
+                    Margin="20,5,20,5"
+                    />
+
+
+            <Label/>
+            <Button x:Name="btnGuardar"
+                    Text="Guardar"
+                    TextColor="Black"
+                    FontSize="15"
+                    BackgroundColor="LightSkyBlue"
+                    HeightRequest="40"
+                    WidthRequest="300"
+                    Margin="20"
+                    HorizontalOptions="Center"/>
+
+            <Label/>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

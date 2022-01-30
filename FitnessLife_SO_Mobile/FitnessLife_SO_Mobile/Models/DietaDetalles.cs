@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FitnessLife_SO_Mobile.Models
 {
-    class DietaDetalles
+    public class DietaDetalles
     {
         [Key]
         public int IdDietaDetalle { get; set; }
