@@ -5,9 +5,7 @@
 
 **Repositorio de la aplicación Xamarin Forms Fitness Life**
 
-## Integrantes: 
-- Esteban Sampedro 
-- Felipe Ocaña
+
 ## Especificaciones de uso:
 ### Paso 1: Instalación de HAXM
 - El usuario deberá instalar el ejecutable de `HAXM` para poder tener un motor de virtualización asistido por hardware para implementar simuladores de dispositivos móviles Android.
